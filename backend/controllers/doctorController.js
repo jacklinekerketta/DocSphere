@@ -22,7 +22,7 @@ export const registerDoctor = async (req, res) => {
     const profile_picture =
       req.file?.filename || null;
 
-    // Required validation
+  
     if (
       !name ||
       !gender ||
@@ -35,7 +35,7 @@ export const registerDoctor = async (req, res) => {
       });
     }
 
-    // Convert numbers
+    
     age = Number(age);
     yoe = Number(yoe) || 0;
     consultation_fee =
@@ -79,7 +79,7 @@ export const registerDoctor = async (req, res) => {
 
 export const getDoctors = async (req, res) => {
   try {
-    // Query params
+  
     const page =
       Number(req.query.page) || 1;
     const limit =
@@ -95,7 +95,7 @@ export const getDoctors = async (req, res) => {
     const offset =
       (page - 1) * limit;
 
-    // Filtering query
+    
     let baseQuery = `
       FROM doctors
       WHERE name LIKE ?
@@ -113,7 +113,7 @@ export const getDoctors = async (req, res) => {
       values.push(speciality);
     }
 
-    // Doctors with pagination
+    
     const [doctors] = await db.query(
       `
       SELECT * ${baseQuery}
@@ -122,7 +122,7 @@ export const getDoctors = async (req, res) => {
       [...values, limit, offset]
     );
 
-    // Total count
+    
     const [[{ count }]] =
       await db.query(
         `
@@ -151,7 +151,7 @@ export const getDoctorById = async (req, res) => {
   try {
     const { id } = req.params;
 
-    // Check doctor exists first
+
     const [existing] = await db.query(
       `SELECT * FROM doctors WHERE id = ?`,
       [id]
@@ -163,7 +163,7 @@ export const getDoctorById = async (req, res) => {
       });
     }
 
-    // Increment search count
+
     await db.query(
       `UPDATE doctors
        SET search_count = search_count + 1
@@ -171,7 +171,7 @@ export const getDoctorById = async (req, res) => {
       [id]
     );
 
-    // Fetch updated doctor
+
     const [rows] = await db.query(
       `SELECT * FROM doctors WHERE id = ?`,
       [id]

@@ -1,0 +1,385 @@
+/* ---------- GLOBAL ---------- */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(
+    135deg,
+    #f5f7fb,
+    #eef2ff
+  );
+}
+
+h2 {
+  margin: 25px 20px 10px;
+  color: #1f2d3d;
+}
+
+/* ---------- GRID ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(260px, 1fr)
+  );
+  gap: 22px;
+  padding: 20px;
+}
+
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    #2b7cff,
+    #4f9cff
+  );
+  color: white;
+  padding: 14px 40px;
+  box-shadow: 0 3px 12px
+    rgba(0, 0, 0, 0.15);
+}
+
+.navbar h2 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 25px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.navbar a:hover {
+  opacity: 0.85;
+}
+
+/* ---------- DOCTOR CARD ---------- */
+/* ---------- DOCTOR CARD ---------- */
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 4px 14px
+    rgba(0, 0, 0, 0.08);
+  text-align: left; /* Better readability */
+  transition: none; /* Remove hover animation */
+}
+
+/* Remove hover effect */
+.card:hover {
+  transform: none;
+  box-shadow: 0 4px 14px
+    rgba(0, 0, 0, 0.08);
+}
+
+/* Image */
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+/* Doctor Name */
+.card h3 {
+  margin: 6px 0;
+  font-size: 18px;
+  color: #1f2d3d;
+  font-weight: 600;
+}
+
+/* Speciality Tag Style */
+.card .speciality {
+  display: inline-block;
+  background: #eef4ff;
+  color: #2b7cff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+/* City */
+.card .city {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* Bottom Row */
+.card .infoRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #444;
+}
+
+/* Experience */
+.card .experience {
+  font-weight: 500;
+}
+
+.card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Fee */
+.card .fee {
+  font-weight: 600;
+  color: #2b7cff;
+}
+
+/* ---------- FILTER BOX ---------- */
+
+.filterBox {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+  flex-wrap: wrap;
+  background: white;
+  margin: 0 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px
+    rgba(0, 0, 0, 0.06);
+}
+
+.filterBox input,
+.filterBox select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  min-width: 160px;
+  outline: none;
+}
+
+.filterBox input:focus,
+.filterBox select:focus {
+  border-color: #2b7cff;
+}
+
+.filterBox button {
+  padding: 10px 18px;
+  background: linear-gradient(
+    90deg,
+    #2b7cff,
+    #4f9cff
+  );
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.filterBox button:hover {
+  transform: scale(1.05);
+}
+
+/* ---------- TAGS ---------- */
+
+.tags {
+  padding: 0 20px 20px;
+}
+
+.tags span {
+  display: inline-block;
+  background: white;
+  padding: 9px 16px;
+  margin: 6px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+.tags span:hover {
+  background: #2b7cff;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ---------- DETAIL PAGE ---------- */
+
+.detail {
+  max-width: 750px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px
+    rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.detail img {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #eef2ff;
+}
+
+.detail h2 {
+  margin-top: 18px;
+}
+
+.detail p {
+  margin: 7px 0;
+  color: #555;
+}
+
+/* ---------- BADGE ---------- */
+
+.badge {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 7px 16px;
+  background: linear-gradient(
+    90deg,
+    gold,
+    orange
+  );
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 13px;
+}
+ /* ---------- FORM BOX ---------- */
+
+.formBox {
+  max-width: 500px;
+  margin: 40px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px
+    rgba(0, 0, 0, 0.08);
+}
+
+/* Inputs + Select SAME styling */
+.formBox input,
+.formBox select {
+  display: block;
+  width: 100%;
+  height: 42px; /* Force same height */
+  margin: 12px 0;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background: white;
+  box-sizing: border-box;
+}
+
+/* Focus state */
+.formBox input:focus,
+.formBox select:focus {
+  outline: none;
+  border-color: #2b7cff;
+  box-shadow: 0 0 0 2px
+    rgba(43, 124, 255, 0.15);
+}
+
+/* Button */
+.formBox button {
+  padding: 12px 18px;
+  background: #2b7cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.formBox button:hover {
+  background: #1f5ed6;
+}
+
+/* ---------- FORM ---------- */
+
+/* ---------- CTA BOX ---------- */
+
+.ctaBox {
+  background: linear-gradient(
+    90deg,
+    #2b7cff,
+    #4f9cff
+  );
+  color: white;
+  margin: 40px 20px;
+  padding: 35px;
+  text-align: center;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px
+    rgba(0, 0, 0, 0.15);
+}
+
+.ctaBox button {
+  padding: 12px 22px;
+  background: white;
+  color: #2b7cff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 12px;
+  transition: 0.2s;
+}
+
+.ctaBox button:hover {
+  transform: scale(1.05);
+}
+
+
+.emptyState {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px
+    rgba(0, 0, 0, 0.08);
+}
+
+.emptyState h3 {
+  margin-bottom: 10px;
+  color: #1f2d3d;
+}
+
+.emptyState p {
+  color: #666;
+}
+
+/* ---------- BACK BUTTON ---------- */
+
+.backBtn {
+  margin: 20px;
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid #2b7cff;
+  color: #2b7cff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.backBtn:hover {
+  background: #2b7cff;
+  color: white;
+}
+

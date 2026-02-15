@@ -16,7 +16,7 @@ router.post(
   registerDoctor
 );
 
-// STATIC ROUTES FIRST
+
 router.get(
   "/most-searched",
   getMostSearchedDoctors
@@ -29,7 +29,7 @@ router.get(
 
 router.get("/", getDoctors);
 
-// DYNAMIC LAST
+
 router.get("/:id", getDoctorById);
 
 
