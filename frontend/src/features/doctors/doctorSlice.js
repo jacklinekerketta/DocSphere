@@ -18,8 +18,6 @@ const doctorSlice = createSlice({
         ...state.doctorList,
         ...action.payload,
       ];
-      
-
     },
 
     clearDoctors: (state) => {

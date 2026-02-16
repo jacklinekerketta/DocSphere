@@ -27,29 +27,20 @@ const DoctorListing = () => {
     (state) => state.doctors
   );
 
-  // ==============================
-  // STATES
-  // ==============================
-  const [page, setPage] =
-    useState(1);
-  const [total, setTotal] =
-    useState(0);
-  const [loading, setLoading] =
-    useState(false);
+
+  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const limit = 12;
 
-  // Scroll container ref
+
   const gridRef = useRef(null);
 
-  // ==============================
-  // QUERY PARAMS
-  // ==============================
-  const [searchParams] =
-    useSearchParams();
+  
+  const [searchParams] = useSearchParams();
 
-  const search =
-    searchParams.get("search") || "";
+  const search = searchParams.get("search") || "";
   const city =
     searchParams.get("city") || "";
   const speciality =
@@ -57,18 +48,13 @@ const DoctorListing = () => {
       "speciality"
     ) || "";
 
-  // ==============================
-  // FETCH DOCTORS
-  // ==============================
-  const fetchDoctors = async (
-    pageNo
-  ) => {
-    if (loading) return;
 
+  const fetchDoctors = async (pageNo ) => {
+
+    if (loading) return;
     setLoading(true);
 
-    const res = await api.get(
-      "/doctors",
+    const res = await api.get("/doctors",
       {
         params: {
           page: pageNo,
@@ -98,17 +84,13 @@ const DoctorListing = () => {
     setLoading(false);
   };
 
-  // ==============================
-  // RESET ON FILTER CHANGE
-  // ==============================
+ 
   useEffect(() => {
     dispatch(clearDoctors());
     setPage(1);
   }, [search, city, speciality]);
 
-  // ==============================
-  // FETCH ON PAGE CHANGE
-  // ==============================
+  
   useEffect(() => {
     fetchDoctors(page);
   }, [
@@ -118,9 +100,7 @@ const DoctorListing = () => {
     speciality,
   ]);
 
-  // ==============================
-  // INFINITE SCROLL (CONTAINER)
-  // ==============================
+ 
   useEffect(() => {
     const container =
       gridRef.current;
@@ -163,9 +143,6 @@ const DoctorListing = () => {
     loading,
   ]);
 
-  // ==============================
-  // UI
-  // ==============================
   return (
     <div>
       <Navbar />
@@ -174,7 +151,7 @@ const DoctorListing = () => {
 
       <SearchFilter />
 
-      {/* Scroll Container */}
+     
       <div
         className="grid"
         ref={gridRef}
@@ -193,7 +170,7 @@ const DoctorListing = () => {
         ) : (
           <div className="emptyState">
             <h3>
-              No doctors found 😔
+              No doctors found
             </h3>
             <p>
               Try changing filters

@@ -12,15 +12,13 @@ import { api } from "../services/api";
 const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const { doctorList } = useSelector(
     (state) => state.doctors
   );
 
-  // Fetch top 4 most searched
+
   useEffect(() => {
-    api
-      .get("/doctors/most-searched")
+    api.get("/doctors/most-searched")
       .then((res) => {
         dispatch(setDoctors(res.data));
       })
@@ -46,16 +44,10 @@ const Home = () => {
       <SpecialityTags />
 
       <div className="ctaBox">
-  <h2>Are you a Doctor?</h2>
+      <h2>Are you a Doctor?</h2>
 
-  <button
-    onClick={() =>
-      navigate("/register")
-    }
-  >
-    Register Now
-  </button>
-</div>
+     <button onClick={() => navigate("/register")}> Register Now </button>
+    </div>
 
     </div>
   );

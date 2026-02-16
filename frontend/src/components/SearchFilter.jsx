@@ -22,7 +22,7 @@ const SearchFilter = () => {
 
   return (
     <div className="filterBox">
-      {/* Name */}
+     
       <input
         placeholder="Search doctor"
         value={name}
@@ -31,7 +31,7 @@ const SearchFilter = () => {
         }
       />
 
-      {/* City */}
+     
       <select
         value={city}
         onChange={(e) =>
@@ -44,7 +44,7 @@ const SearchFilter = () => {
         ))}
       </select>
 
-      {/* Speciality */}
+      
       <select
         value={speciality}
         onChange={(e) =>

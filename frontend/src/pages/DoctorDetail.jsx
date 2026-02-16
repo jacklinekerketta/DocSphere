@@ -14,7 +14,7 @@ const DoctorDetail = () => {
     useState([]);
   const navigate = useNavigate();
 
-  // Always fetch doctor (increments search count)
+ 
   useEffect(() => {
     api
       .get(`/doctors/${id}`)
@@ -24,7 +24,7 @@ const DoctorDetail = () => {
       .catch(console.error);
   }, [id]);
 
-  // Fetch top 10 list
+ 
   useEffect(() => {
     api
       .get("/doctors/top-ten")
@@ -33,7 +33,7 @@ const DoctorDetail = () => {
       });
   }, []);
 
-  if (!doctor) return <p>Loading...</p>;
+  if (!doctor) return <p>Profile not found</p>;
 
   const isTopTen = topTen.some(
     (d) => d.id === doctor.id
@@ -42,43 +42,31 @@ const DoctorDetail = () => {
   return (
     <div>
       <Navbar />
-      <button
-  className="backBtn"
-  onClick={() => navigate(-1)}
->
-  ← Back
-</button>
+      <button className="backBtn" onClick={() => navigate(-1)}>
+       Back
+      </button>
 
 
       <div className="detail">
         <img
-          src={
-            doctor.profile_picture
-              ? `http://localhost:5000/uploads/${doctor.profile_picture}`
-              : "/doctor.jpg"
-          }
-          alt=""
+          src={doctor.profile_picture?`http://localhost:5000/uploads/${doctor.profile_picture}`: "/doctor.jpg"} alt="Doctor Profile"
         />
 
         <h2>{doctor.name}</h2>
+
+
+        {isTopTen && (
+          <span className="badge">Most Searched</span>
+        )}
+
         <p>{doctor.speciality}</p>
         <p>{doctor.city}</p>
 
         <h3>Professional Info</h3>
 
-        <p>
-          Experience: {doctor.yoe} yrs
-        </p>
-        <p>
-          Fee: ₹{" "}
-          {doctor.consultation_fee}
-        </p>
+        <p>Experience: {doctor.yoe} yrs</p>
+        <p>Fee: ₹{ doctor.consultation_fee}</p>
 
-        {isTopTen && (
-          <span className="badge">
-            Most Searched
-          </span>
-        )}
       </div>
     </div>
   );

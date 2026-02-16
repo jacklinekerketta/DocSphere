@@ -6,7 +6,7 @@ import {
 } from "../data/masterData";
 import { useNavigate } from "react-router-dom";
 
-const RegisterDoctor = () => {
+  const RegisterDoctor = () => {
   const [step, setStep] = useState(1);
   const navigate = useNavigate();
 
@@ -26,14 +26,11 @@ const RegisterDoctor = () => {
       consultation_fee: "",
     });
 
-  const [file, setFile] =
-    useState(null);
+  const [file, setFile] = useState(null);
 
   const handleInput = (e) => {
     setFormData({
-      ...formData,
-      [e.target.name]:
-        e.target.value,
+      ...formData,[e.target.name]:e.target.value,
     });
   };
 
@@ -46,45 +43,26 @@ const RegisterDoctor = () => {
         data.append(key, formData[key])
     );
 
-    if (file) {
-      data.append(
-        "profile_picture",
-        file
-      );
+    if (file) { 
+      data.append("profile_picture",file);
     }
 
-    const res = await api.post(
-      "/doctors",
-      data
-    );
-
-    // Success message
-    alert(
-      "Doctor registered successfully!"
-    );
-
-    // Redirect to home
+    const res = await api.post("/doctors",data);
+    alert("Doctor registered successfully!");
     navigate("/");
 
   } catch (error) {
     console.error(error);
-
-    alert(
-      "Registration failed. Please try again with valid details."
-    );
+    alert("Registration failed. Please try again with valid details.");
   }
 };
-
 
   return (
     
     <div className="formBox">
-      <button
-  className="backBtn"
-  onClick={() => navigate(-1)}
->
-  ← Back
-</button>
+      <button className="backBtn" onClick={()=>navigate(-1)}> 
+        Back
+      </button>
 
       {step === 1 ? (
         <div>
@@ -104,18 +82,14 @@ const RegisterDoctor = () => {
             onChange={handleInput}
           />
 
-          {/* Gender Dropdown */}
+      
           <select
             name="gender"
             value={formData.gender}
-            onChange={handleInput}
-          >
-            <option value="">
-              Select Gender
-            </option>
+            onChange={handleInput}>
+            <option value="">Select Gender</option>
             <option>Male</option>
             <option>Female</option>
-            <option>Other</option>
           </select>
 
           <input
@@ -132,15 +106,12 @@ const RegisterDoctor = () => {
             onChange={handleInput}
           />
 
-          {/* City Dropdown */}
+         
           <select
             name="city"
             value={formData.city}
-            onChange={handleInput}
-          >
-            <option value="">
-              Select City
-            </option>
+            onChange={handleInput}>
+            <option value="">Select City</option>
             {cities.map((c) => (
               <option key={c}>
                 {c}
@@ -189,7 +160,7 @@ const RegisterDoctor = () => {
             onChange={handleInput}
           />
 
-          {/* Speciality Dropdown */}
+       
           <select
             name="speciality"
             value={

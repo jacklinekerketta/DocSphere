@@ -38,8 +38,7 @@ export const registerDoctor = async (req, res) => {
     
     age = Number(age);
     yoe = Number(yoe) || 0;
-    consultation_fee =
-      Number(consultation_fee) || 0;
+    consultation_fee = Number(consultation_fee) || 0;
 
     const query = `
       INSERT INTO doctors
@@ -83,7 +82,7 @@ export const getDoctors = async (req, res) => {
     const page =
       Number(req.query.page) || 1;
     const limit =
-      Number(req.query.limit) || 6;
+      Number(req.query.limit) || 4;
 
     const search =
       req.query.search || "";
